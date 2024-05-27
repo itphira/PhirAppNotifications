@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NV9kHNG0C6mlObDOPRl1pwKQSVsWIT0wuYQ1RiGzWlY=",
+  "Source": "PhirAppNotifications",
+  "BasePath": "_content/PhirAppNotifications",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
