@@ -42,3 +42,4 @@ C:\Users\it.soporte\source\repos\PhirAppNotifications\PhirAppNotifications\obj\D
 C:\Users\it.soporte\source\repos\PhirAppNotifications\PhirAppNotifications\obj\Debug\net8.0\PhirAppNotifications.pdb
 C:\Users\it.soporte\source\repos\PhirAppNotifications\PhirAppNotifications\obj\Debug\net8.0\PhirAppNotifications.genruntimeconfig.cache
 C:\Users\it.soporte\source\repos\PhirAppNotifications\PhirAppNotifications\obj\Debug\net8.0\ref\PhirAppNotifications.dll
+C:\Users\it.soporte\source\repos\PhirAppNotifications\PhirAppNotifications\obj\Debug\net8.0\PhirAppNotifications.sourcelink.json

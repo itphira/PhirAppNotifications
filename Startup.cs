@@ -1,23 +1,19 @@
-﻿using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 public class Startup
 {
+    public IConfiguration Configuration { get; }
+
     public Startup(IConfiguration configuration)
     {
         Configuration = configuration;
     }
 
-    public IConfiguration Configuration { get; }
-
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
-
-        FirebaseApp.Create(new AppOptions()
-        {
-            Credential = GoogleCredential.FromFile("path/to/serviceAccountKey.json")
-        });
+        services.AddSingleton<NotificationService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -27,7 +23,10 @@ public class Startup
             app.UseDeveloperExceptionPage();
         }
 
+        app.UseHttpsRedirection();
         app.UseRouting();
+        app.UseAuthorization();
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();

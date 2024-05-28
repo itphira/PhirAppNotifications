@@ -1,32 +1,32 @@
-﻿using FirebaseAdmin.Messaging;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-[Route("api/[controller]")]
 [ApiController]
+[Route("api/[controller]")]
 public class NotificationsController : ControllerBase
 {
-    [HttpPost]
-    public async Task<IActionResult> SendNotification([FromBody] NotificationRequest request)
+    private readonly NotificationService _notificationService;
+
+    public NotificationsController(NotificationService notificationService)
     {
-        var message = new Message()
-        {
-            Token = request.Token,
-            Notification = new Notification()
-            {
-                Title = request.Title,
-                Body = request.Body
-            }
-        };
-
-        var result = await FirebaseMessaging.DefaultInstance.SendAsync(message);
-        return Ok(result);
+        _notificationService = notificationService;
     }
-}
 
-public class NotificationRequest
-{
-    public string Token { get; set; }
-    public string Title { get; set; }
-    public string Body { get; set; }
+    [HttpPost("reply")]
+    public async Task<IActionResult> ReplyToComment([FromBody] ReplyModel model)
+    {
+        // Obtener el token de FCM del usuario al que se le está respondiendo
+        var userToken = await GetUserTokenAsync(model.RepliedToUsername);
+
+        // Enviar la notificación
+        await NotificationService.SendNotificationAsync(userToken, "Nuevo comentario", $"{model.Author} ha respondido a tu comentario");
+
+        return Ok();
+    }
+
+    private Task<string> GetUserTokenAsync(string username)
+    {
+        // Lógica para obtener el token de FCM del usuario desde la base de datos
+        return Task.FromResult("user-fcm-token");
+    }
 }

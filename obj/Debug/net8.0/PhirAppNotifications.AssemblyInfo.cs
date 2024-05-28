@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PhirAppNotifications")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85187d553e19c617fb600bfb6d406e15972e4000")]
 [assembly: System.Reflection.AssemblyProductAttribute("PhirAppNotifications")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PhirAppNotifications")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
